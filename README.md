@@ -39,6 +39,12 @@ Or install it yourself as:
     bundle
     rspec  # or: rake
 
+## TODO
+
+* Make separation between sort code and account number less naive (could possible be fixed by normalisation).
+* Add errors
+* Mooore tests!
+
 ## Also see
 
 * [BankTools::SE (Swedish)](https://github.com/barsoom/banktools-se)
