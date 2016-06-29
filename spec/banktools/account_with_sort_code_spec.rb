@@ -10,7 +10,7 @@ describe BankTools::GB::AccountWithSortCode, "#valid?" do
   end
 
   it "ignores whitespace" do
-    expect(BankTools::GB::AccountWithSortCode.new(account_number: "31926819", sort_code: "601613").valid?).to be true
+    expect(BankTools::GB::AccountWithSortCode.new(account_number: "3192 6819", sort_code: "60 16 13").valid?).to be true
   end
 
   it "ignores dashes" do

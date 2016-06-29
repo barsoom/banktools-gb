@@ -13,7 +13,7 @@ module BankTools
       pattr_initialize [ :account_number, :sort_code ]
 
       def valid?
-        UkAccountValidator::Validator.new(account_number, sort_code).valid?
+        UkAccountValidator::Validator.new(compact_account_number, compact_sort_code).valid?
       end
 
       def errors
