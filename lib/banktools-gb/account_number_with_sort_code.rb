@@ -3,7 +3,7 @@ require "banktools-gb/errors"
 
 module BankTools
   module GB
-    class AccountWithSortCode
+    class AccountNumberWithSortCode
       extend AttrExtras.mixin
 
       ACCOUNT_NUMBER_MIN_LENGTH = 6

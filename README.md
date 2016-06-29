@@ -6,11 +6,11 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
 ## Usage
 
-    account = BankTools::GB::Account.new(account_number: "31926819", sort_code: "60-16-13")
+    account = BankTools::GB::AccountNumberWithSortCode.new(account_number: "31926819", sort_code: "60-16-13")
     account.valid?  # => true
     account.errors  # => []
 
-    bad_account = BankTools::GB::Account.new(account_number: "1", sort_code: "")
+    bad_account = BankTools::GB::AccountNumberWithSortCode.new(account_number: "1", sort_code: "")
     bad_account.valid?  # => false
     bad_account.errors  # => [:too_short]
 
@@ -19,7 +19,8 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
     BankTools::GB::Errors::ACCOUNT_NUMBER_TOO_SHORT                # => :account_number_too_short
     BankTools::GB::Errors::ACCOUNT_NUMBER_TOO_LONG                 # => :account_number_too_long
     BankTools::GB::Errors::SORT_CODE_WITH_WRONG_LENGTH             # => :sort_code_with_wrong_length
-    BankTools::GB::Errors::INVALID_CHARACTERS                      # => :invalid_characters
+    BankTools::GB::Errors::ACCOUNT_NUMBER_INVALID_CHARACTERS       # => :account_number_invalid_characters
+    BankTools::GB::Errors::SORT_CODE_INVALID_CHARACTERS            # => :sort_code_invalid_characters
 
 ## Installation
 
