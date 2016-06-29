@@ -14,7 +14,7 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
     bad_account = BankTools::GB::AccountNumberWithSortCode.new(account_number: "1", sort_code: "")
     bad_account.valid?  # => false
-    bad_account.errors  # => [:too_short]
+    bad_account.errors  # => [:account_numberaccount_number_too_short]
 
     # Error codes
 
