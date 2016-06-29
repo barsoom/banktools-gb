@@ -1,4 +1,6 @@
-# United Kingdom banktools
+# United Kingdom bank tools
+
+[![Build Status](https://travis-ci.org/barsoom/banktools-gb.svg?branch=master)](https://travis-ci.org/barsoom/banktools-gb)
 
 Ruby gem to validate and normalize United Kingdom bank account numbers.
 
