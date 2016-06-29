@@ -38,8 +38,11 @@ describe BankTools::GB::AccountWithSortCode, "#errors" do
     expect(BankTools::GB::AccountWithSortCode.new(account_number: "31929000", sort_code: "60-16-11-1").errors).to include(Errors::SORT_CODE_WITH_WRONG_LENGTH)
   end
 
-  it "includes INVALID_CHARACTERS if the account number or sort code have any characters besides digits, whitespace and dashes" do
-    expect(BankTools::GB::AccountWithSortCode.new(account_number: ".31929000z", sort_code: "60-16-13").errors).to include(Errors::INVALID_CHARACTERS)
-    expect(BankTools::GB::AccountWithSortCode.new(account_number: "", sort_code: "€60!-16-13ö").errors).to include(Errors::INVALID_CHARACTERS)
+  it "includes SORT_CODE_INVALID_CHARACTERS if the sort code have any characters besides digits, whitespace and dashes" do
+    expect(BankTools::GB::AccountWithSortCode.new(account_number: "", sort_code: "€60!-16-13ö").errors).to include(Errors::SORT_CODE_INVALID_CHARACTERS)
+  end
+
+  it "includes ACCOUNT_NUMBER_INVALID_CHARACTERS if the account number have any characters besides digits, whitespace and dashes" do
+    expect(BankTools::GB::AccountWithSortCode.new(account_number: "123.456ö78", sort_code: "").errors).to include(Errors::ACCOUNT_NUMBER_INVALID_CHARACTERS)
   end
 end

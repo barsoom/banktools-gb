@@ -21,7 +21,8 @@ module BankTools
         errors << :account_number_too_short if account_number_too_short?
         errors << :account_number_too_long if account_number_too_long?
         errors << :sort_code_with_wrong_length if sort_code_with_wrong_length?
-        errors << :invalid_characters if any_non_digits?
+        errors << :sort_code_invalid_characters if any_non_digits?(compact_sort_code)
+        errors << :account_number_invalid_characters if any_non_digits?(compact_account_number)
         errors
       end
 
@@ -39,16 +40,20 @@ module BankTools
         compact_account_number.length > ACCOUNT_NUMBER_MAX_LENGTH
       end
 
-      def any_non_digits?
-        [ compact_sort_code, compact_account_number ].any? { |number| number.match(/\D/) }
+      def any_non_digits?(number)
+        number.match(/\D/)
       end
 
       def compact_sort_code
-        sort_code.gsub(/[\s-]/, "")
+        compact(sort_code)
       end
 
       def compact_account_number
-        account_number.gsub(/[\s-]/, "")
+        compact(account_number)
+      end
+
+      def compact(number)
+        number.gsub(/[\s-]/, "")
       end
     end
   end
