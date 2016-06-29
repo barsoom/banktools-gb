@@ -18,11 +18,11 @@ module BankTools
 
       def errors
         errors = []
-        errors << :account_number_too_short if account_number_too_short?
-        errors << :account_number_too_long if account_number_too_long?
+        errors << :account_number_is_too_short if account_number_is_too_short?
+        errors << :account_number_is_too_long if account_number_is_too_long?
         errors << :sort_code_with_wrong_length if sort_code_with_wrong_length?
-        errors << :sort_code_invalid_characters if any_non_digits?(compact_sort_code)
-        errors << :account_number_invalid_characters if any_non_digits?(compact_account_number)
+        errors << :sort_code_with_invalid_characters if any_non_digits?(compact_sort_code)
+        errors << :account_number_with_invalid_characters if any_non_digits?(compact_account_number)
         errors << :account_number_does_not_match_sort_code unless valid_account_number_with_sort_code?
         errors
       end
@@ -37,11 +37,11 @@ module BankTools
         compact_sort_code.length != SORT_CODE_LENGTH
       end
 
-      def account_number_too_short?
+      def account_number_is_too_short?
         compact_account_number.length < ACCOUNT_NUMBER_MIN_LENGTH
       end
 
-      def account_number_too_long?
+      def account_number_is_too_long?
         compact_account_number.length > ACCOUNT_NUMBER_MAX_LENGTH
       end
 

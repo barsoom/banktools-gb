@@ -14,15 +14,16 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
     bad_account = BankTools::GB::AccountNumberWithSortCode.new(account_number: "1", sort_code: "")
     bad_account.valid?  # => false
-    bad_account.errors  # => [:account_number_too_short]
+    bad_account.errors  # => [:account_number_is_too_short]
 
     # Error codes
 
-    BankTools::GB::Errors::ACCOUNT_NUMBER_TOO_SHORT                # => :account_number_too_short
-    BankTools::GB::Errors::ACCOUNT_NUMBER_TOO_LONG                 # => :account_number_too_long
-    BankTools::GB::Errors::SORT_CODE_WITH_WRONG_LENGTH             # => :sort_code_with_wrong_length
-    BankTools::GB::Errors::ACCOUNT_NUMBER_INVALID_CHARACTERS       # => :account_number_invalid_characters
-    BankTools::GB::Errors::SORT_CODE_INVALID_CHARACTERS            # => :sort_code_invalid_characters
+    BankTools::GB::Errors::ACCOUNT_NUMBER_IS_TOO_SHORT              # => :account_number_is_too_short
+    BankTools::GB::Errors::ACCOUNT_NUMBER_IS_TOO_LONG               # => :account_number_is_too_long
+    BankTools::GB::Errors::SORT_CODE_WITH_WRONG_LENGTH              # => :sort_code_with_wrong_length
+    BankTools::GB::Errors::ACCOUNT_NUMBER_WITH_INVALID_CHARACTERS   # => :account_number_with_invalid_characters
+    BankTools::GB::Errors::SORT_CODE_WITH_INVALID_CHARACTERS        # => :sort_code_with_invalid_characters
+    BankTools::GB::Errors::ACCOUNT_NUMBER_DOES_NOT_MATCH_SORT_CODE  # => :account_number_does_not_match_sort_code
 
 ## Installation
 

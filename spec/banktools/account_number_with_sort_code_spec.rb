@@ -26,11 +26,11 @@ describe BankTools::GB::AccountNumberWithSortCode, "#errors" do
   end
 
   it "includes ACCOUNT_NUMBER_TOO_SHORT if the account number is below 6 digits" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929", sort_code: "60-16-13").errors).to include(Errors::ACCOUNT_NUMBER_TOO_SHORT)
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929", sort_code: "60-16-13").errors).to include(Errors::ACCOUNT_NUMBER_IS_TOO_SHORT)
   end
 
   it "includes ACCOUNT_NUMBER_TOO_LONG if the account number is above 10 digits" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "12345678901", sort_code: "60-16-13").errors).to include(Errors::ACCOUNT_NUMBER_TOO_LONG)
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "12345678901", sort_code: "60-16-13").errors).to include(Errors::ACCOUNT_NUMBER_IS_TOO_LONG)
   end
 
   it "includes SORT_CODE_WITH_WRONG_LENGTH if the sort code doesn't include 6 digits" do
@@ -39,11 +39,11 @@ describe BankTools::GB::AccountNumberWithSortCode, "#errors" do
   end
 
   it "includes SORT_CODE_INVALID_CHARACTERS if the sort code have any characters besides digits, whitespace and dashes" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "", sort_code: "€60!-16-13ö").errors).to include(Errors::SORT_CODE_INVALID_CHARACTERS)
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "", sort_code: "€60!-16-13ö").errors).to include(Errors::SORT_CODE_WITH_INVALID_CHARACTERS)
   end
 
   it "includes ACCOUNT_NUMBER_INVALID_CHARACTERS if the account number have any characters besides digits, whitespace and dashes" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "123.456ö78", sort_code: "").errors).to include(Errors::ACCOUNT_NUMBER_INVALID_CHARACTERS)
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "123.456ö78", sort_code: "").errors).to include(Errors::ACCOUNT_NUMBER_WITH_INVALID_CHARACTERS)
   end
 
   it "includes ACCOUNT_NUMBER_DOES_NOT_MATCH_SORT_CODE if the account number and the sort code does not match" do
