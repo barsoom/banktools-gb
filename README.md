@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/barsoom/banktools-gb.svg?branch=master)](https://travis-ci.org/barsoom/banktools-gb)
 
-Ruby gem to validate and normalize United Kingdom bank account numbers.
+Ruby gem to validate United Kingdom bank account numbers.
 
 If we got anything wrong, please file an issue or contribute a fix yourself.
 
