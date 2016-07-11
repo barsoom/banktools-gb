@@ -5,7 +5,7 @@ require "banktools-gb/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "banktools-gb"
-  spec.version       = Banktools::Gb::VERSION
+  spec.version       = BankTools::Gb::VERSION
   spec.authors       = ["Tomas Skogberg"]
   spec.email         = ["tomas@auctionet.com"]
 

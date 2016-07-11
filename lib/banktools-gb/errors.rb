@@ -1,4 +1,4 @@
-module Banktools
+module BankTools
   module GB
     module Errors
       TOO_SHORT = :too_short

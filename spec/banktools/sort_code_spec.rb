@@ -11,7 +11,7 @@ describe BankTools::GB::SortCode, "#valid?" do
 end
 
 describe BankTools::GB::SortCode, "#errors" do
-  Errors ||= Banktools::GB::Errors
+  let(:error_types) { BankTools::GB::Errors }
 
   it "returns an empty array when valid" do
     expect(BankTools::GB::SortCode.new("60-16-13").errors).to be_empty
@@ -20,14 +20,14 @@ describe BankTools::GB::SortCode, "#errors" do
   end
 
   it "includes TOO_SHORT if the sort code is below 6 digits" do
-    expect(BankTools::GB::SortCode.new("60-16-1").errors).to include(Errors::TOO_SHORT)
+    expect(BankTools::GB::SortCode.new("60-16-1").errors).to include(error_types::TOO_SHORT)
   end
 
   it "includes TOO_LONG if the sort code is above 6 digits" do
-    expect(BankTools::GB::SortCode.new("60-16-11-1").errors).to include(Errors::TOO_LONG)
+    expect(BankTools::GB::SortCode.new("60-16-11-1").errors).to include(error_types::TOO_LONG)
   end
 
   it "includes INVALID_CHARACTERS if the sort code has any characters besides digits, whitespace and dashes" do
-    expect(BankTools::GB::SortCode.new("60-16-13x").errors).to include(Errors::INVALID_CHARACTERS)
+    expect(BankTools::GB::SortCode.new("60-16-13x").errors).to include(error_types::INVALID_CHARACTERS)
   end
 end
