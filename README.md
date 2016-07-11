@@ -2,27 +2,33 @@
 
 [![Build Status](https://travis-ci.org/barsoom/banktools-gb.svg?branch=master)](https://travis-ci.org/barsoom/banktools-gb)
 
-Ruby gem to validate United Kingdom bank account numbers.
+Ruby gem to validate United Kingdom sort codes and bank account numbers.
+
+When in doubt, this library aims to err on the side of allowing too much.
 
 If we got anything wrong, please file an issue or contribute a fix yourself.
 
 ## Usage
 
-    account = BankTools::GB::AccountNumberWithSortCode.new(account_number: "31926819", sort_code: "60-16-13")
+    # Sort code
+
+    sort_code = BankTools::GB::SortCode.new("60-16-13")
+    sort_code.valid?  # => true
+    sort_code.errors  # => []
+
+    bad_sort_code = BankTools::GB::SortCode.new("1X")
+    bad_sort_code.valid?  # => false
+    bad_sort_code.errors  # => [ :too_short, :invalid_characters ]
+
+    # Account
+
+    account = BankTools::GB::Account.new("31926819")
     account.valid?  # => true
     account.errors  # => []
 
-    bad_account = BankTools::GB::AccountNumberWithSortCode.new(account_number: "1", sort_code: "")
+    bad_account = BankTools::GB::Account.new("1")
     bad_account.valid?  # => false
-    bad_account.errors  # => [:account_number_is_too_short]
-
-    # Error codes
-
-    BankTools::GB::Errors::ACCOUNT_NUMBER_IS_TOO_SHORT              # => :account_number_is_too_short
-    BankTools::GB::Errors::ACCOUNT_NUMBER_IS_TOO_LONG               # => :account_number_is_too_long
-    BankTools::GB::Errors::SORT_CODE_WITH_WRONG_LENGTH              # => :sort_code_with_wrong_length
-    BankTools::GB::Errors::ACCOUNT_NUMBER_WITH_INVALID_CHARACTERS   # => :account_number_with_invalid_characters
-    BankTools::GB::Errors::SORT_CODE_WITH_INVALID_CHARACTERS        # => :sort_code_with_invalid_characters
+    bad_account.errors  # => [ :too_short ]
 
 ## Installation
 
@@ -48,10 +54,6 @@ Or install it yourself as:
 * [BankTools::SE (Swedish)](https://github.com/barsoom/banktools-se)
 * [BankTools::DE (German)](https://github.com/barsoom/banktools-de)
 * [BankTools::DK (German)](https://github.com/barsoom/banktools-dk)
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/banktools-gb.
 
 ## License
 
