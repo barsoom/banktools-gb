@@ -25,24 +25,27 @@ describe BankTools::GB::AccountNumberWithSortCode, "#errors" do
     expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31926819", sort_code: "60-16-13").errors).to be_empty
   end
 
-  it "includes ACCOUNT_NUMBER_TOO_SHORT if the account number is below 6 digits" do
+  it "includes SORT_CODE_IS_TOO_SHORT if the sort code is below 6 digits" do
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929000", sort_code: "60-16-1").errors).to include(Errors::SORT_CODE_IS_TOO_SHORT)
+  end
+
+  it "includes SORT_CODE_IS_TOO_LONG if the sort code is above 6 digits" do
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929000", sort_code: "60-16-11-1").errors).to include(Errors::SORT_CODE_IS_TOO_LONG)
+  end
+
+  it "includes ACCOUNT_NUMBER_IS_TOO_SHORT if the account number is below 6 digits" do
     expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929", sort_code: "60-16-13").errors).to include(Errors::ACCOUNT_NUMBER_IS_TOO_SHORT)
   end
 
-  it "includes ACCOUNT_NUMBER_TOO_LONG if the account number is above 10 digits" do
+  it "includes ACCOUNT_NUMBER_IS_TOO_LONG if the account number is above 10 digits" do
     expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "12345678901", sort_code: "60-16-13").errors).to include(Errors::ACCOUNT_NUMBER_IS_TOO_LONG)
   end
 
-  it "includes SORT_CODE_WITH_WRONG_LENGTH if the sort code doesn't include 6 digits" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929000", sort_code: "60-16-1").errors).to include(Errors::SORT_CODE_WITH_WRONG_LENGTH)
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "31929000", sort_code: "60-16-11-1").errors).to include(Errors::SORT_CODE_WITH_WRONG_LENGTH)
+  it "includes SORT_CODE_CONTAINS_INVALID_CHARACTERS if the sort code have any characters besides digits, whitespace and dashes" do
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "", sort_code: "€60!-16-13ö").errors).to include(Errors::SORT_CODE_CONTAINS_INVALID_CHARACTERS)
   end
 
-  it "includes SORT_CODE_INVALID_CHARACTERS if the sort code have any characters besides digits, whitespace and dashes" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "", sort_code: "€60!-16-13ö").errors).to include(Errors::SORT_CODE_WITH_INVALID_CHARACTERS)
-  end
-
-  it "includes ACCOUNT_NUMBER_INVALID_CHARACTERS if the account number have any characters besides digits, whitespace and dashes" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "123.456ö78", sort_code: "").errors).to include(Errors::ACCOUNT_NUMBER_WITH_INVALID_CHARACTERS)
+  it "includes ACCOUNT_NUMBER_CONTAINS_INVALID_CHARACTERS if the account number have any characters besides digits, whitespace and dashes" do
+    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "123.456ö78", sort_code: "").errors).to include(Errors::ACCOUNT_NUMBER_CONTAINS_INVALID_CHARACTERS)
   end
 end
