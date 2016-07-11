@@ -23,7 +23,6 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
     BankTools::GB::Errors::SORT_CODE_WITH_WRONG_LENGTH              # => :sort_code_with_wrong_length
     BankTools::GB::Errors::ACCOUNT_NUMBER_WITH_INVALID_CHARACTERS   # => :account_number_with_invalid_characters
     BankTools::GB::Errors::SORT_CODE_WITH_INVALID_CHARACTERS        # => :sort_code_with_invalid_characters
-    BankTools::GB::Errors::ACCOUNT_NUMBER_DOES_NOT_MATCH_SORT_CODE  # => :account_number_does_not_match_sort_code
 
 ## Installation
 
@@ -49,10 +48,6 @@ Or install it yourself as:
 * [BankTools::SE (Swedish)](https://github.com/barsoom/banktools-se)
 * [BankTools::DE (German)](https://github.com/barsoom/banktools-de)
 * [BankTools::DK (German)](https://github.com/barsoom/banktools-dk)
-
-## Credits
-
-* [Hayden Ball](https://github.com/ball-hayden) for creating [UkAccountValidator](https://github.com/ball-hayden/uk_account_validator) that we base this gem on.
 
 ## Contributing
 

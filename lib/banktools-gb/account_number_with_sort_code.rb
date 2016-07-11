@@ -23,15 +23,10 @@ module BankTools
         errors << :sort_code_with_wrong_length if sort_code_with_wrong_length?
         errors << :sort_code_with_invalid_characters if any_non_digits?(compact_sort_code)
         errors << :account_number_with_invalid_characters if any_non_digits?(compact_account_number)
-        errors << :account_number_does_not_match_sort_code unless valid_account_number_with_sort_code?
         errors
       end
 
       private
-
-      def valid_account_number_with_sort_code?
-        UkAccountValidator::Validator.new(compact_account_number, compact_sort_code).valid?
-      end
 
       def sort_code_with_wrong_length?
         compact_sort_code.length != SORT_CODE_LENGTH

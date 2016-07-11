@@ -45,8 +45,4 @@ describe BankTools::GB::AccountNumberWithSortCode, "#errors" do
   it "includes ACCOUNT_NUMBER_INVALID_CHARACTERS if the account number have any characters besides digits, whitespace and dashes" do
     expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "123.456ö78", sort_code: "").errors).to include(Errors::ACCOUNT_NUMBER_WITH_INVALID_CHARACTERS)
   end
-
-  it "includes ACCOUNT_NUMBER_DOES_NOT_MATCH_SORT_CODE if the account number and the sort code does not match" do
-    expect(BankTools::GB::AccountNumberWithSortCode.new(account_number: "92620772", sort_code: "56-00-29").errors).to include(Errors::ACCOUNT_NUMBER_DOES_NOT_MATCH_SORT_CODE)
-  end
 end
