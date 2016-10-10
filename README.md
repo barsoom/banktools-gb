@@ -51,9 +51,7 @@ Or install it yourself as:
 
 ## Also see
 
-* [BankTools::SE (Swedish)](https://github.com/barsoom/banktools-se)
-* [BankTools::DE (German)](https://github.com/barsoom/banktools-de)
-* [BankTools::DK (German)](https://github.com/barsoom/banktools-dk)
+* [Our other BankTools](https://github.com/barsoom?query=banktools)
 
 ## License
 
