@@ -52,6 +52,7 @@ Or install it yourself as:
 ## Also see
 
 * [Our other BankTools](https://github.com/barsoom?q=banktools)
+* [BanklineCsvImportFile](https://github.com/barsoom/bankline_csv_import_file)
 
 ## License
 
