@@ -17,21 +17,21 @@ module BankTools
       def errors
         errors = []
 
-        errors << Errors::TOO_SHORT if compacted_value.length < LENGTH
-        errors << Errors::TOO_LONG if compacted_value.length > LENGTH
-        errors << Errors::INVALID_CHARACTERS if any_non_digits?
+        errors << Errors::SORT_CODE_TOO_SHORT if compacted_value.length < LENGTH
+        errors << Errors::SORT_CODE_TOO_LONG if compacted_value.length > LENGTH
+        errors << Errors::SORT_CODE_INVALID_CHARACTERS if any_non_digits?
 
         errors
+      end
+
+      def compacted_value
+        original_value.to_s.gsub(/[\s-]/, "")
       end
 
       private
 
       def any_non_digits?
         compacted_value.match(/\D/)
-      end
-
-      def compacted_value
-        original_value.to_s.gsub(/[\s-]/, "")
       end
     end
   end

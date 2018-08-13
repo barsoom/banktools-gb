@@ -54,6 +54,10 @@ Or install it yourself as:
 * [Our other BankTools](https://github.com/barsoom?q=banktools)
 * [BanklineCsvImportFile](https://github.com/barsoom/bankline_csv_import_file)
 
+## Credits
+
+* [Hayden Ball](https://github.com/ball-hayden) for creating [UkAccountValidator](https://github.com/ball-hayden/uk_account_validator) that we base this gem on.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
