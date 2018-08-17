@@ -30,6 +30,17 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
     bad_account.valid?  # => false
     bad_account.errors  # => [ :too_short ]
 
+
+    # Account and sort code (checksum check and others)
+
+    account_and_sort_code = BankTools::GB::AccountNumberAndSortCode.new(account_number_original_value: 14248387, sort_code_original_value: 405161).valid?
+    account_and_sort_code.valid?  # => true
+    account_and_sort_code.errors  # => []
+
+    account_and_sort_code = BankTools::GB::AccountNumberAndSortCode.new(account_number_original_value: 14248387, sort_code_original_value: "xx")
+    account_and_sort_code.valid?  # => false
+    account_and_sort_code.errors  # => [:sort_code_too_short, :sort_code_invalid_characters, :bad_checksum]
+
 ## Installation
 
 Add this line to your application's Gemfile:
