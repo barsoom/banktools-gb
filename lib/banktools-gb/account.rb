@@ -6,7 +6,7 @@ module BankTools
     class Account
       extend AttrExtras.mixin
 
-      # Officially, bank accounts in the UK can be between 6 and 10 numbers, but
+      # Officially, bank accounts in the UK can be between 6 and 10 digits, but
       # the standard is 8, and any system that receives them will require them to
       # be zero-padded. Customers should be used to prepend zeroes, and it should not be an issue.
       # If this becomes an issue, lets consider handling auto-zeropadding, but it is both
