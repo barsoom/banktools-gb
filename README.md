@@ -32,6 +32,7 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
 
     # Account and sort code (checksum check and others)
+    # This relies on [our fork of the uk_account_validator gem](https://github.com/barsoom/uk_account_validator). If that gem is out of date, the checksum check may be also.
 
     account_and_sort_code = BankTools::GB::AccountNumberAndSortCode.new(account_number_original_value: 14248387, sort_code_original_value: 405161).valid?
     account_and_sort_code.valid?  # => true
