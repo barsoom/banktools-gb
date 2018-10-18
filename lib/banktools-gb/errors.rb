@@ -7,7 +7,6 @@ module BankTools
       SORT_CODE_TOO_LONG           = :sort_code_too_long
       ACCOUNT_INVALID_CHARACTERS   = :account_invalid_characters
       SORT_CODE_INVALID_CHARACTERS = :sort_code_invalid_characters
-      BAD_CHECKSUM                 = :bad_checksum
     end
   end
 end
