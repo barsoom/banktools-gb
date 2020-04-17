@@ -10,31 +10,35 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
 ## Usage
 
-    # Sort code
+```ruby
+# Sort code
 
-    sort_code = BankTools::GB::SortCode.new("60-16-13")
-    sort_code.valid?  # => true
-    sort_code.errors  # => []
+sort_code = BankTools::GB::SortCode.new("60-16-13")
+sort_code.valid?  # => true
+sort_code.errors  # => []
 
-    bad_sort_code = BankTools::GB::SortCode.new("1X")
-    bad_sort_code.valid?  # => false
-    bad_sort_code.errors  # => [ :too_short, :invalid_characters ]
+bad_sort_code = BankTools::GB::SortCode.new("1X")
+bad_sort_code.valid?  # => false
+bad_sort_code.errors  # => [ :too_short, :invalid_characters ]
 
-    # Account
+# Account
 
-    account = BankTools::GB::Account.new("31926819")
-    account.valid?  # => true
-    account.errors  # => []
+account = BankTools::GB::Account.new("31926819")
+account.valid?  # => true
+account.errors  # => []
 
-    bad_account = BankTools::GB::Account.new("1")
-    bad_account.valid?  # => false
-    bad_account.errors  # => [ :too_short ]
+bad_account = BankTools::GB::Account.new("1")
+bad_account.valid?  # => false
+bad_account.errors  # => [ :too_short ]
+```
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem "banktools-gb"
+```ruby
+gem "banktools-gb"
+```
 
 And then execute:
 
