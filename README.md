@@ -1,6 +1,6 @@
 # United Kingdom bank tools
 
-[![Build Status](https://travis-ci.org/barsoom/banktools-gb.svg?branch=master)](https://travis-ci.org/barsoom/banktools-gb)
+[![Ruby CI](https://github.com/barsoom/banktools-gb/actions/workflows/ci.yml/badge.svg)](https://github.com/barsoom/banktools-gb/actions/workflows/ci.yml)
 
 Ruby gem to validate United Kingdom sort codes and bank account numbers.
 
