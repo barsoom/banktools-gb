@@ -4,3 +4,8 @@ source "https://rubygems.org"
 gemspec
 
 gem "uk_account_validator", github: "ball-hayden/uk_account_validator"
+
+group :development do
+  gem "barsoom_utils", github: "barsoom/barsoom_utils"
+  gem "rubocop"
+end
