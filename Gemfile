@@ -7,5 +7,8 @@ gem "uk_account_validator", github: "ball-hayden/uk_account_validator"
 
 group :development do
   gem "barsoom_utils"
+  gem "bundler"
+  gem "rake"
+  gem "rspec"
   gem "rubocop"
 end
