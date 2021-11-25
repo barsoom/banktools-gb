@@ -5,7 +5,7 @@ gemspec
 
 gem "uk_account_validator", github: "ball-hayden/uk_account_validator"
 
-group :development do
+group :development, :test do
   gem "barsoom_utils"
   gem "bundler"
   gem "rake"
