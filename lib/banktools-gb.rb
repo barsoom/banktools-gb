@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "banktools-gb/version"
 require "banktools-gb/sort_code"
 require "banktools-gb/account"
