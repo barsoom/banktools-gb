@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe BankTools::GB::SortCode, "#valid?" do
+RSpec.describe BankTools::GB::SortCode, "#valid?" do
   it "returns true with no errors" do
     expect(BankTools::GB::SortCode.new("601613").valid?).to be true
   end
@@ -20,7 +20,7 @@ describe BankTools::GB::SortCode, "#valid?" do
   end
 end
 
-describe BankTools::GB::SortCode, "#errors" do
+RSpec.describe BankTools::GB::SortCode, "#errors" do
   let(:error_types) { BankTools::GB::Errors }
 
   it "returns an empty array when valid" do
